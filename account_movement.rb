@@ -28,7 +28,7 @@ def process_transactions
     value = transation['value'].to_i
 
     @accounts[id] += value
-    @accounts[id] -= 300 if @accounts[id].negative?
+    @accounts[id] -= 300 if @accounts[id].negative? && value.negative?
   end
 end
 
