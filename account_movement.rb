@@ -41,7 +41,7 @@ end
 
 #==== Start from here =====
 if ARGV.count != 2
-  puts "Incorrect sintaxe - missing file names\nuse: account_movement account_file_name transactions_file_name"
+  puts "Incorrect sintaxe - missing file names\nuse: account_movement account_file_name.csv transactions_file_name.csv"
   exit
 else
   @error = []
