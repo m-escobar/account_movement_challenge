@@ -27,7 +27,9 @@ def process_transactions
 end
 
 def print_balance
-  puts "Your Account Balance: 00"
+  @accounts.each do |id, value|
+    puts "Balance for account id #{id}: #{value}"
+  end
 end
 
 #==== Start from here =====
