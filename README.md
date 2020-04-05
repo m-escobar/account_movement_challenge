@@ -1,8 +1,7 @@
 # App Movimentação de Contas
-Objetivo
-
 Esta é uma aplicação em Ruby, linha de comando, que calcula o saldo da conta corrente dos clientes.
 
+***
 ## Execução
 Para executar esta aplicação, execute a aplicação passando como parâmetros os nomes dos arquivos de contas e de transações, conforme abaixo:
 #### ruby account_movement.rb account_file_name.csv transactions_file_name.csv
@@ -20,6 +19,7 @@ Conteúdo dos arquivos
     Exemplo: 123,-5300 (Débito de R$ 53,00 na conta 123)
     Exemplo: 123,350000 (Depósito de R$ 3.500,00 na conta 123)
 
+***
 ## Cálculo do Saldo
 O saldo da conta será calculado a partir do saldo inicial. Será aplicada uma transação por vez, na sequência que estas forem lançadas no arquivo de transações.
 
@@ -37,9 +37,10 @@ Os débitos reduzirão o saldo da conta e depósitos aumentarão o saldo da cont
   Depósito de R$5,00 na conta 123;
   Saldo final da conta 123: R$-14,00
   
+***
 ## Visualização dos resultados
 A saída deve será exibida na tela (stdout) no formato abaixo:
 
-
+***
 # Sobre o projeto:
   Neste projeto foi utilizada apenas a gem 'CSV' para auxílio na leitura dos arquivos de contas e transações.
