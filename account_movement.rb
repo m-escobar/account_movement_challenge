@@ -1,5 +1,4 @@
 require 'csv'
-require 'pry'
 
 def open_file(origin, file_type)
   begin
@@ -24,11 +23,19 @@ def initialize_accounts(account_file)
 end
 
 def process_transactions
+  @transactions.each do |transation|
+    id = transation['id'].to_i
+    value = transation['value'].to_i
+
+    @accounts[id] += value
+    @accounts[id] -= 300 if @accounts[id].negative?
+  end
 end
 
 def print_balance
   @accounts.each do |id, value|
-    puts "Balance for account id #{id}: #{value}"
+    value_str = '%.2f' % (value/100.0)
+    puts "Balance for account id #{id}: R$ #{'%9s' % value_str}"
   end
 end
 
