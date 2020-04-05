@@ -1,4 +1,5 @@
 require 'csv'
+require 'pry'
 
 def open_file(origin, file_type)
   begin
@@ -16,6 +17,18 @@ def exit_with_errors
   exit
 end
 
+def initialize_accounts(account_file)
+  account_file.each do |acc|
+    @accounts[acc[0].to_i] =  acc[1].to_i
+  end
+end
+
+def process_transactions
+end
+
+def print_balance
+  puts "Your Account Balance: 00"
+end
 
 #==== Start from here =====
 if ARGV.count != 2
@@ -23,14 +36,18 @@ if ARGV.count != 2
   exit
 else
   @error = []
+  @accounts = {}
+
   open_file(ARGV[0], 'acc_file')
   open_file(ARGV[1], 'tsc_file')
 
   exit_with_errors if !@error.empty?
 
-  account_file = CSV.parse(@acc_file, headers: false)
-  transaction_file = CSV.parse(@tsc_file, headers: false)
+  account_file = CSV.parse(@acc_file, headers: ['id','value'])
+  initialize_accounts(account_file)
 
-  puts account_file[0][1]
-  puts "Your Account Balance: 00"
+  @transactions = CSV.parse(@tsc_file, headers: ['id','value'])
+
+  process_transactions
+  print_balance
 end
